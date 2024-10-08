@@ -1,0 +1,24 @@
+Cambiare input data:
+su "data in gen" modificare sequence_corner_gen (lunghezza dati, setcorner, vsew)
+
+Cambiare lunghezza input data nell'FPU tb:
+su fpu_tb.sv cambiare NDATA=X*3
+
+Cambiare settings per l'operazione nell'FPU tb:
+su fpu_tb.sv cambiare op_group e op_crtl appropriatamente
+
+Cambiare settings SoftFloat:
+su reference.sh cambiare operazione (fadd64, fmul64...)
+per info sulle operazioni generic_float_calc/build ./reference_model -h
+
+Cambiare da quali slot vengono acquisiti gli operandi per le operazioni:
+su compare.sh, per MUL: %3==1 e %3==2. per ADD %3==2 e %3==0
+
+Cambiare quali campi di esadecimali stampare:
+su compare.sh, in fondo
+
+Lanciare generazione delle uscite:
+./compare.sh
+
+Confrontare:
+i due file output.txt (FPU) e softfloat.output.txt (Softfloat)
